@@ -9,11 +9,11 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <p className='bg-slate-600 p-4 w-fit rounded-lg m-auto'>Hello World!</p>
-        
+    <div>
       
-    </>
+      <NewGameMenu></NewGameMenu>
+      
+    </div>
   )
 }
 
