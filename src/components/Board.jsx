@@ -15,6 +15,7 @@ export default function Board() {
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   };
 
+ 
   const handleSquareClick = (index) => {
     if (squares[index] !== null || winner !== null) {
       // Ignore click if the square is already taken or if there's a winner
@@ -89,11 +90,18 @@ export default function Board() {
           <div className="bg-[#F2B137] w-[140px] h-[72px] rounded-[15px]"></div>
         </div>*/}
         {winner && (
-          <div className="text-center">
-            <h2 className="text-xl font-bold text-green-500 mt-4 ">
-              {winner} Wins!
+          <div>
+
+
+            <div className="fixed  inset-0 bg-black opacity-50  w-full h-full"></div>
+            <div className="fixed inset-0 flex  items-center justify-center">
+            <h2 className=" text-[40px] font-outfit flex items-center justify-center font-bold h-[266px] w-full bg-[#1F3641] text-green-500">
+              {winner } TAKES THE ROUND!
             </h2>
           </div>
+          </div>
+          
+          
         )}
       </div>
     </div>

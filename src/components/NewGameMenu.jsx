@@ -63,9 +63,9 @@ export default function NewGameMenu() {
               REMEMBER : X GOES FIRST
             </p>
           </div>
-          {/*<button onClick={()=>{navigate('/game')}} className=" h-[67px] bg-[#F2B137] hover:bg-[#FFC860] mt-[40px] rounded-[15px] font-bold shadow-[0px_-8px_0px_#CC8B13_inset] font-outfit w-full pb-2 text-[20px] text-[#1A2A33]">
+          <button onClick={()=>{navigate('/game')}} className=" h-[67px] bg-[#F2B137] hover:bg-[#FFC860] mt-[40px] rounded-[15px] font-bold shadow-[0px_-8px_0px_#CC8B13_inset] font-outfit w-full pb-2 text-[20px] text-[#1A2A33]">
             NEW GAME (VS CPU)
-          </button>*/}
+          </button>
           <button onClick={()=>{navigate('/game')}} className="h-[67px] bg-[#31C3BD] hover:bg-[#65E9E4] mt-[20px] rounded-[15px] font-bold shadow-[0px_-8px_0px_#118c87_inset] font-outfit w-full pb-2 text-[20px] text-[#1A2A33]">
             NEW GAME (VS PLAYER)
           </button>
