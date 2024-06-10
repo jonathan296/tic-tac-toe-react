@@ -93,11 +93,18 @@ export default function Board() {
           <div>
 
 
-            <div className="fixed  inset-0 bg-black opacity-50  w-full h-full"></div>
+            <div className="fixed  inset-0 bg-black opacity-50 w-full h-full"></div>
             <div className="fixed inset-0 flex  items-center justify-center">
-            <h2 className=" text-[40px] font-outfit flex items-center justify-center font-bold h-[266px] w-full bg-[#1F3641] text-green-500">
-              {winner } TAKES THE ROUND!
-            </h2>
+            <div className=" h-[266px] w-full bg-[#1F3641] flex flex-col items-center justify-center ">
+              <div className={`flex text-[40px] font-outfit font-bold  ${winner==="X"?"text-[#31C3BD]":"text-white"}`}>
+                <img className="w-[64px] h-[64px]" src={winner=== "X"?"xSelectedIcon.svg":"oSelectedIcon.svg"}/> <h1>TAKES THE ROUND!</h1>
+              </div>
+              <div className="font-outfit flex gap-[16px]">
+                <button onClick={() => { navigate('/') }} title="Home" className=" h-[52px] w-[76px] bg-[#A8BFC9] hover:bg-[#DBE8ED] text-[#1A2A33] text-[16px] rounded-[10px] font-outfit font-bold shadow-[0px_-4px_0px_#6B8997_inset]  ">QUIT</button>
+                <button onClick={() => { setWinner(null) }} className=" h-[52px] w-[146px] bg-[#F2B137] hover:bg-[#FFC860] text-[#1A2A33] text-[16px] rounded-[10px] font-outfit font-bold shadow-[0px_-4px_0px_#CC8B13_inset]  ">NEXT ROUND</button>
+              </div>
+            </div>
+            
           </div>
           </div>
           
