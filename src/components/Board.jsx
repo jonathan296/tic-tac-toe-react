@@ -1,9 +1,14 @@
 import { useState } from "react";
 import Square from "./Square";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function Board() {
+  const location = useLocation();
+  const isCPUGame = location.state?.isCPUGame || false;
+
+
+
   // Hooks
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [squares, setSquares] = useState(Array(9).fill(null));
