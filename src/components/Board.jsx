@@ -5,8 +5,8 @@ import { useEffect } from "react";
 
 export default function Board() {
   const location = useLocation();
-  const isCPUGame = location.state?.isCPUGame || false;
-
+  const isCpuGame = location.state?.isCpuGame || false;
+  console.log(isCpuGame);
 
 
   // Hooks
@@ -31,6 +31,9 @@ export default function Board() {
 
   useEffect(()=>{
     handleScores(winner)
+    if (isCpuGame && currentPlayer === 'O' && !winner) {
+      makeCpuMove();
+    }
   },[winner, squares]);
 
   const handleScores = (winner) => {
@@ -68,6 +71,14 @@ export default function Board() {
       togglePlayer();
     }
   };
+
+  const makeCpuMove = () => {
+    const emptySquares = squares.map((square, index) => square === null ? index : null).filter(val => val !== null);
+    const randomIndex = Math.floor(Math.random() * emptySquares.length);
+    handleSquareClick(emptySquares[randomIndex]);
+  };
+
+
 
   const calculateWinner = (squares) => {
     const lines = [
@@ -139,6 +150,7 @@ export default function Board() {
             />
           )}
         </div>
+        {/*ScoreBoard*/}
         <div className="flex gap-[20px] mt-[19px]">
           <div className="flex flex-col justify-center items-center font-outfit text-[#1A2A33] bg-[#31C3BD] w-[140px] h-[72px] rounded-[15px]">
             <h2 className="tracking-[.88px] font-medium text-[14px] leading-[18px]">X (YOU)</h2>
