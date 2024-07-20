@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function NewGameMenu() {
-  const [selectPlayer, setSelectPlayer] = useState("o");
+  const [selectPlayer, setSelectPlayer] = useState("O");
   const navigate = useNavigate();
 
   const togglePlayer = (player) => {
@@ -11,10 +11,10 @@ export default function NewGameMenu() {
     console.log(player)
   };
   
-  const buttonXStyle = selectPlayer === "x" ? "bg-[#A8BFC9]" : "bg-[#1A2A33] hover:bg-opacity-5 hover:bg-[#A8BFC9]";
-  const buttonOStyle = selectPlayer === "o" ? "bg-[#A8BFC9]" : "bg-[#1A2A33]  hover:bg-opacity-5 hover:bg-[#A8BFC9]";
-  const svgXFill = selectPlayer === "x" ? "#1A2A33" : "#A8BFC9";
-  const svgOFill = selectPlayer === "o" ? "#1A2A33" : "#A8BFC9";
+  const buttonXStyle = selectPlayer === "X" ? "bg-[#A8BFC9]" : "bg-[#1A2A33] hover:bg-opacity-5 hover:bg-[#A8BFC9]";
+  const buttonOStyle = selectPlayer === "O" ? "bg-[#A8BFC9]" : "bg-[#1A2A33]  hover:bg-opacity-5 hover:bg-[#A8BFC9]";
+  const svgXFill = selectPlayer === "X" ? "#1A2A33" : "#A8BFC9";
+  const svgOFill = selectPlayer === "O" ? "#1A2A33" : "#A8BFC9";
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function NewGameMenu() {
               PICK PLAYER 1'S MARK
             </h1>
             <div className="bg-[#1A2A33] w-[412px] h-[72px] mx-auto rounded-[10px] mb-[17px] p-[9px] flex">
-              <button onClick={()=>{togglePlayer("x")}} className={`${buttonXStyle} w-1/2 h-full rounded-[10px] flex flex-row items-center justify-center `}>
+              <button onClick={()=>{togglePlayer("X")}} className={`${buttonXStyle} w-1/2 h-full rounded-[10px] flex flex-row items-center justify-center `}>
                 <svg
                   width="32"
                   height="32"
@@ -42,7 +42,7 @@ export default function NewGameMenu() {
                   />
                 </svg>
               </button>
-              <button onClick={()=>{togglePlayer("o")}} className= {`${buttonOStyle} w-1/2 h-full rounded-[10px] flex flex-row items-center justify-center`}>
+              <button onClick={()=>{togglePlayer("O")}} className= {`${buttonOStyle} w-1/2 h-full rounded-[10px] flex flex-row items-center justify-center`}>
                 <svg
                   width="32"
                   height="32"
@@ -63,7 +63,7 @@ export default function NewGameMenu() {
               REMEMBER : X GOES FIRST
             </p>
           </div>
-          <button onClick={()=>{navigate('/game', {state: { isCpuGame: true}})}} className=" h-[67px] bg-[#F2B137] hover:bg-[#FFC860] mt-[40px] rounded-[15px] font-bold shadow-[0px_-8px_0px_#CC8B13_inset] font-outfit w-full pb-2 text-[20px] text-[#1A2A33]">
+          <button onClick={()=>{navigate('/game', {state: { isCpuGame: true, selectPlayer}})}} className=" h-[67px] bg-[#F2B137] hover:bg-[#FFC860] mt-[40px] rounded-[15px] font-bold shadow-[0px_-8px_0px_#CC8B13_inset] font-outfit w-full pb-2 text-[20px] text-[#1A2A33]">
             NEW GAME (VS CPU)
           </button>
           <button onClick={()=>{navigate('/game', {state: { isCpuGame: false}})}} className="h-[67px] bg-[#31C3BD] hover:bg-[#65E9E4] mt-[20px] rounded-[15px] font-bold shadow-[0px_-8px_0px_#118c87_inset] font-outfit w-full pb-2 text-[20px] text-[#1A2A33]">

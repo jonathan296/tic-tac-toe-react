@@ -5,8 +5,9 @@ import { useEffect } from "react";
 
 export default function Board() {
   const location = useLocation();
-  const isCpuGame = location.state?.isCpuGame || false;
-  console.log(isCpuGame);
+  const isCpuGame = location.state?.isCpuGame 
+  const selectedPlayer = location.state?.selectPlayer
+  
 
 
   // Hooks
@@ -31,8 +32,9 @@ export default function Board() {
 
   useEffect(()=>{
     handleScores(winner)
-    if (isCpuGame && currentPlayer === 'O' && !winner) {
-      makeCpuMove();
+    if (isCpuGame && currentPlayer != selectedPlayer && !winner) {
+      const timer = setTimeout(makeCpuMove, 800); // Delay
+      return () => clearTimeout(timer); // Cleanup the timer when dependencies change
     }
   },[winner, squares]);
 
