@@ -33,7 +33,7 @@ export default function Board() {
   useEffect(()=>{
     handleScores(winner)
     if (isCpuGame && currentPlayer != selectedPlayer && !winner) {
-      const timer = setTimeout(makeCpuMove, 800); // Delay
+      const timer = setTimeout(makeCpuMove, 100); // Delay
       return () => clearTimeout(timer); // Cleanup the timer when dependencies change
     }
   },[winner, squares]);
